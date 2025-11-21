@@ -680,7 +680,7 @@
     color: var(--matcha-accent); /* Use a fresh accent color for icons */
 }
 
-/* Textarea Styling */
+/* ================Textarea Styling ================*/
 #contact-form textarea {
     width: 100%;
     padding: 10px;
@@ -722,7 +722,7 @@
     }
 }
 
-/* Mobile Responsiveness for About Page */
+/* ==================Mobile Responsiveness for About Page=================== */
 @media screen and (max-width: 768px) {
     .mission-vision-wrapper {
         flex-direction: column; /* Stack mission and vision vertically on smaller screens */
