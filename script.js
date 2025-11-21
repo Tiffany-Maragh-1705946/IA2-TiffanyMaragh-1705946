@@ -48,13 +48,12 @@ function handleLogin(event) {
         localStorage.setItem('currentUser', usernameInput);
 
         // 3. Update UI (DOM Manipulation)
-        // Ensure the path to index.html is correct. If it's in a subfolder like 'Codes',
-        // it should be 'Codes/index.html' or adjusted accordingly if this script.js is at root.
+        // Ensure the path to index.html is correct.
         updateHeaderWelcomeMessage(usernameInput);
 
         // 4. Redirect to the homepage
         alert('Login Successful! Welcome ' + usernameInput);
-        window.location.href = 'index.html'; // Or 'Codes/index.html' if your homepage is in Codes/
+        window.location.href = '../index.html'; 
 
     } else {
 
@@ -67,9 +66,6 @@ function handleLogin(event) {
     }
 }
 
-// DELETE THE ENTIRE BLOCK THAT WAS HERE, STARTING WITH A "{",
-// AND ENDING WITH A "}" JUST BEFORE THE FUNCTION BELOW.
-// That block was causing a syntax error that stopped your script.
 
 /* Helper function to check login status and update ALL pages */
 function updateHeaderWelcomeMessage(username) {
@@ -96,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/* IA#2: Event Listener for Login Form */
+/*       Event Listener for Login Form */
 const loginForm = document.getElementById('login-form');
 
 if (loginForm) {
@@ -104,7 +100,7 @@ if (loginForm) {
     loginForm.addEventListener('submit', handleLogin);
 }
 
-/* IA#2: User-Defined Function - validateForm() */
+/* User-Defined Function - validateForm() */
 /* Purpose: Check required fields, email format, and password matching. */
 /* Creator: Tiffany Maragh 1705946 */
 function validateForm() {
@@ -172,10 +168,10 @@ function validateForm() {
         isValid = false;
     }
 
-    // If validation passes, you could optionally simulate successful registration here
+    // If validation passes, simulate successful registration
     if (isValid) {
         alert("Registration form data is valid! (Simulation complete)");
-        // In a real application, you would submit the data to a server here.
+        
     }
     
     return isValid; // Returns true to allow form submission, false to prevent it
@@ -189,7 +185,7 @@ const closeCartButton = document.getElementById('close-cart-button');
 
 // Function to open the cart sidebar
 function openCartSidebar(event) {
-// Optional: Prevent navigation if the user clicks a cart link
+// Prevent navigation if the user clicks a cart link
     if (event) {
         event.preventDefault(); 
     }
@@ -213,12 +209,9 @@ if (closeCartButton) {
     closeCartButton.addEventListener('click', closeCartSidebar);
 }
 
-/* ============================================== */
-/* Display/Update Functions (To be completed later) */
-/* ============================================== */
-
-
-// Placeholder function to update cart item count in the header
+/* IA#2: User-Defined Function - updateCartItemCount() */
+/* Purpose: To update the cart item count displayed in the header based on Local Storage data. */
+/* Creator: Tiffany Maragh 1705946 */
 function updateCartItemCount() {
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
